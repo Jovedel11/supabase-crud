@@ -4,14 +4,14 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/signup");
+    navigate("/singup");
   };
 
   return (
     <div
       className="hero min-h-screen"
       style={{
-        backgroundImage: "url(./public/assets/images/bg.png)",
+        backgroundImage: "url(/assets/images/bg.png)",
       }}
     >
       <div className="hero-overlay"></div>
@@ -19,11 +19,9 @@ const Hero = () => {
         <div className="max-w-md">
           <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
           <p className="mb-5">
-            First React and Supbase Project, Implementing Crud
+            First React + Vite and Supabase Project, Todo App.
           </p>
-          <button className="btn btn-primary" onClick={handleNavigate}>
-            Get Started
-          </button>
+          <button className="btn btn-primary">Get Started</button>
         </div>
       </div>
     </div>
