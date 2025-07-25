@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="navbar shadow-sm w-full bg-amber-300">
+    <div className="navbar shadow-sm w-full bg-gray-400">
       <div className="flex justify-center items-center">
         <div className="flex-1">
           <Link to="/" className="btn btn-ghost text-xl">
@@ -11,7 +11,7 @@ const Navbar = () => {
         </div>
         <div className="flex">
           <img
-            src="assets/images/logo.png"
+            src="assets/images/logo-nbg.png"
             alt="Todo Logo"
             className="w-18 h-17"
           />

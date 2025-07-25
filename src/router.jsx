@@ -3,11 +3,17 @@ import Home from "./app/public/Home";
 import Signup from "./app/public/Singup";
 import Singin from "./app/public/Singin";
 import Dashboard from "./app/private/Dashboard";
+import RootRedirect from "./core/routes/RootRedirect";
+import ProtectedRoutes from "./core/routes/ProtectedRoutes";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: (
+      <RootRedirect>
+        <Home />
+      </RootRedirect>
+    ),
   },
   {
     path: "/singup",
@@ -19,6 +25,10 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <ProtectedRoutes>
+        <Dashboard />,
+      </ProtectedRoutes>
+    ),
   },
 ]);

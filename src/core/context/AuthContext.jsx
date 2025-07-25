@@ -16,6 +16,8 @@ const AuthContext = ({ children }) => {
         if (error) {
           throw new Error(error.message);
         }
+        console.log(data.session);
+        console.log(data.session.user);
         setSession(data.session);
         setLoading(false);
       } catch (error) {
@@ -78,8 +80,36 @@ const AuthContext = ({ children }) => {
     }
   };
 
+  //singout
+  const signOutUser = async () => {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        return {
+          success: false,
+          eroor: {
+            message: error.message,
+            code: error.code,
+          },
+        };
+      }
+      setSession(null);
+      return { success: true, message: "Signout Successfuly" };
+    } catch (error) {
+      return {
+        success: false,
+        error: {
+          message: error.message || "Error Sign out",
+          code: "Unexpected Error",
+        },
+      };
+    }
+  };
+
   return (
-    <AuthProvider.Provider value={{ session, loading, signInUser }}>
+    <AuthProvider.Provider
+      value={{ session, loading, signInUser, signOutUser }}
+    >
       {children}
     </AuthProvider.Provider>
   );
